@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baihui's Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;800&family=Space+Grotesk:wght@700&display=swap');
+
+        :root {
+            --primary: #ff9aab;
+            --secondary: #0d9488;
+            --bg-lit: #fafafa;
+            --text-lit: #050505;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #1e293b;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Navigation: same style as homepage */
+        nav {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            padding: 1rem 3rem;
+            background: rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 100px;
+            z-index: 200;
+            transition: all 0.5s ease;
+        }
+
+        .nav-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: -0.05em;
+            font-weight: bold;
+            color: #111827;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: inherit;
+            opacity: 0.6;
+            transition: opacity 0.3s, color 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        /* Soft background blobs: matching homepage */
+        .page-blob {
+            position: fixed;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        .blob-1 {
+            top: -8%;
+            right: -12%;
+            width: 380px;
+            height: 380px;
+            background: #ffedd5;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        }
+
+        .blob-2 {
+            bottom: -10%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: #f1f5f9;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        .blob-3 {
+            top: 38%;
+            left: 60%;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 154, 171, 0.18);
+            border-radius: 48% 52% 38% 62% / 42% 35% 65% 58%;
+            filter: blur(2px);
+        }
+
+        .section-heading svg {
+            width: 80px;
+        }
+
+        /* Filter buttons */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.85rem;
+            margin: 2rem auto 3rem;
+            max-width: 980px;
+            position: sticky;
+            top: 7.2rem;
+            z-index: 80;
+            padding: 1rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(17, 24, 39, 0.08);
+            box-shadow: 0 18px 50px rgba(15, 23, 42, 0.05);
+        }
+
+        .filter-btn {
+            border: 1px solid rgba(17, 24, 39, 0.08);
+            background: rgba(255, 255, 255, 0.85);
+            color: #64748b;
+            padding: 0.78rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .filter-btn:hover {
+            color: #111827;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+            box-shadow: 0 14px 30px rgba(255, 154, 171, 0.34);
+        }
+
+        /* Project cards */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2.5rem;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(17, 24, 39, 0.08);
+            box-shadow: 0 24px 70px rgba(15, 23, 42, 0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 90px rgba(15, 23, 42, 0.13);
+        }
+
+        .project-image-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            margin: 1rem 1rem 0;
+            background: #f8fafc;
+        }
+
+        .project-card img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.45s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.55rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(10px);
+            color: #111827;
+            font-size: 0.62rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .project-content {
+            padding: 1.35rem 1.45rem 1.55rem;
+        }
+
+        .project-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #111827;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.7rem;
+        }
+
+        .project-desc {
+            color: #64748b;
+            line-height: 1.7;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.4rem;
+        }
+
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tool-pill {
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: #94a3b8;
+            background: #f8fafc;
+            padding: 0.42rem 0.62rem;
+            border-radius: 999px;
+        }
+
+        .details-link {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: #111827;
+            color: #ffffff;
+            transition: all 0.25s ease;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .details-link:hover {
+            background: var(--primary);
+            transform: rotate(-12deg) scale(1.06);
+        }
+
+        .project-card.hide {
+            display: none;
+        }
+
+        footer {
+            border-top: 1px solid rgba(15, 23, 42, 0.06);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                width: calc(100% - 2rem);
+                gap: 1.2rem;
+                padding: 0.9rem 1.2rem;
+                justify-content: space-between;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-link {
+                font-size: 0.65rem;
+            }
+
+            .filter-bar {
+                position: static;
+                border-radius: 2rem;
+                justify-content: flex-start;
+            }
+
+            .filter-btn {
+                font-size: 0.68rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-blob blob-1"></div>
+    <div class="page-blob blob-2"></div>
+    <div class="page-blob blob-3"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="nav-brand">BAIHUI</a>
+        <div class="nav-links">
+            <a href="projects.html" class="nav-link active">Projects</a>
+            <a href="resume.html" class="nav-link">Resume</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 px-8 md:px-20 pt-40 pb-24 max-w-7xl mx-auto">
+        <!-- Header -->
+        <section class="text-center section-heading">
+            <p class="text-[#ff9aab] font-bold text-sm uppercase tracking-[0.2em] mb-4">Selected Works</p>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#111827]">
+                Projects
+            </h1>
+            <svg class="mx-auto mt-4 text-[#ff9aab]" viewBox="0 0 100 20" fill="none" stroke="currentColor"
+                stroke-width="3" stroke-linecap="round">
+                <path d="M0 10 Q 25 20 50 10 T 100 10"></path>
+            </svg>
+            <p class="max-w-2xl mx-auto mt-6 text-lg text-gray-500 leading-relaxed font-medium">
+                A collection of my design, media, 3D, and game development work. Filter by category to explore the tiny
+                galaxies I have built so far.
+            </p>
+        </section>
+
+        <!-- Filter -->
+        <section class="filter-bar" aria-label="Project filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="3d">3D Modeling & Environment</button>
+            <button class="filter-btn" data-filter="uiux">UI/UX</button>
+            <button class="filter-btn" data-filter="social">Social Media Campaign</button>
+            <button class="filter-btn" data-filter="game">Game Development</button>
+        </section>
+
+        <!-- Project Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" id="projectGrid">
+            <!-- 3D Modeling & Environment -->
+            <article class="project-card" data-category="3d">
+                <div class="project-image-wrap">
+                    <img src="Images/MazingerZ.png" alt="3D environment project preview">
+                    <span class="project-tag">3D Environment</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Mazinger-Z 3D Model</h2>
+                    <p class="project-desc">
+                        A stylised robot character model inspired by Mazinger Z, featuring bold colours, mechanical body
+                        parts, and a playful chibi-like proportion.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Maya</span>
+                            <span class="tool-pill">Substance Painter</span>
+                        </div>
+                        <a href="https://skfb.ly/pIWtT" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Social Media Campaign -->
+            <article class="project-card" data-category="social">
+                <div class="project-image-wrap">
+                    <img src="Images/project-social-campaign.jpg" alt="Social media campaign preview">
+                    <span class="project-tag">Campaign</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Food Waste Awareness Campaign</h2>
+                    <p class="project-desc">
+                        A student-led campaign concept using posters and social media content to encourage small daily
+                        actions that reduce food waste on campus.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Canva</span>
+                            <span class="tool-pill">Content</span>
+                            <span class="tool-pill">Strategy</span>
+                        </div>
+                        <a href="#" class="details-link" aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Development -->
+            <article class="project-card" data-category="game">
+                <div class="project-image-wrap">
+                    <img src="Images/project-game-dev.jpg" alt="Game development project preview">
+                    <span class="project-tag">Game Dev</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Phish & Chips Game</h2>
+                    <p class="project-desc">
+                        A 3D educational game where players identify suspicious online offers, avoid scams, and learn
+                        digital safety through interactive missions.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Unity</span>
+                            <span class="tool-pill">C#</span>
+                            <span class="tool-pill">Gameplay</span>
+                        </div>
+                        <a href="#" class="details-link" aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- UI/UX -->
+            <article class="project-card" data-category="uiux">
+                <div class="project-image-wrap">
+                    <img src="Images/project-uiux-app.jpg" alt="UI UX app project preview">
+                    <span class="project-tag">UI/UX</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Phished & Chips App</h2>
+                    <p class="project-desc">
+                        A scam-awareness companion app designed for game 'Phish & Chips', featuring learning content, quizzes,
+                        achievements, and leaderboard-based engagement.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Figma</span>
+                            <span class="tool-pill">UX Flow</span>
+                            <span class="tool-pill">Firebase</span>
+                        </div>
+                        <a href="#" class="details-link" aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Extra UI/UX Card -->
+            <article class="project-card" data-category="uiux">
+                <div class="project-image-wrap">
+                    <img src="Images/project-website-redesign.jpg" alt="Website redesign project preview">
+                    <span class="project-tag">UI/UX</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Burnt Cones Website Redesign</h2>
+                    <p class="project-desc">
+                        A website redesign proposal improving visual hierarchy, readability, navigation, and user
+                        engagement through clearer sections and stronger CTAs.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Figma</span>
+                            <span class="tool-pill">Web UX</span>
+                            <span class="tool-pill">Prototype</span>
+                        </div>
+                        <a href="#" class="details-link" aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Extra 3D Card -->
+            <article class="project-card" data-category="3d">
+                <div class="project-image-wrap">
+                    <img src="Images/chess.png" alt="3D asset project preview">
+                    <span class="project-tag">3D Modeling</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Chess Set</h2>
+                    <p class="project-desc">
+                        A detailed 3D chess set featuring modeled pieces with clean geometry, consistent forms, and
+                        neatly arranged UV mapping for texturing.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Maya</span>
+                            <span class="tool-pill">Substance Painter</span>
+                        </div>
+                        <a href="https://youtu.be/YyqQyahnYyw" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- kuromi -->
+            <article class="project-card" data-category="3d">
+                <div class="project-image-wrap">
+                    <img src="Images/kuromi.png" alt="3D asset project preview">
+                    <span class="project-tag">3D Modeling</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Kuromi</h2>
+                    <p class="project-desc">
+                        A stylised high-poly 3D model of Kuromi, featuring a cute character design with a unique
+                        melted-skull detail for a creative twist.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Maya</span>
+                            <span class="tool-pill">Substance Painter</span>
+                        </div>
+                        <a href="https://www.artstation.com/artwork/1NRrd3" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="relative z-10 pt-12 pb-10 flex justify-center gap-8 max-w-7xl mx-auto">
+        <a href="https://github.com/100hui" target="_blank"
+            class="text-gray-500 hover:text-[#ff9aab] transition-colors cursor-pointer">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/baihui-geng-0394b6304" target="_blank"
+            class="text-gray-500 hover:text-[#ff9aab] transition-colors cursor-pointer">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+        </a>
+    </footer>
+
+    <script>
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedFilter = button.dataset.filter;
+
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                projectCards.forEach(card => {
+                    const cardCategory = card.dataset.category;
+
+                    if (selectedFilter === 'all' || selectedFilter === cardCategory) {
+                        card.classList.remove('hide');
+                    } else {
+                        card.classList.add('hide');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
