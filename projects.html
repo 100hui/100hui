@@ -370,10 +370,12 @@
             <button class="filter-btn" data-filter="3d">3D Modeling & Environment</button>
             <button class="filter-btn" data-filter="uiux">UI/UX & Web/App Design</button>
             <button class="filter-btn" data-filter="game">Game Development</button>
+            <button class="filter-btn" data-filter="social">Social Media Campagin</button>
         </section>
 
         <!-- Project Cards -->
         <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8" id="projectGrid">
+
             <!-- 3D Modeling & Environment -->
             <article class="project-card" data-category="3d">
                 <div class="project-image-wrap">
@@ -403,6 +405,35 @@
                 </div>
             </article>
 
+            <!-- Controller -->
+            <article class="project-card" data-category="uiux">
+                <div class="project-image-wrap">
+                    <img src="Images/controller.png" alt="Website redesign project preview">
+                    <span class="project-tag">UX</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Dual Soba Bowl Controller</h2>
+                    <p class="project-desc">
+                        A UX research and controller design project that turns a two-player noodle-eating game
+                        into a physical interaction experience using custom soba bowl controllers.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Product Design</span>
+                            <span class="tool-pill">UX</span>
+                        </div>
+                        <a href="Files/Controller.pdf" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
             <!-- Game Development -->
             <article class="project-card" data-category="game">
                 <div class="project-image-wrap">
@@ -421,7 +452,8 @@
                             <span class="tool-pill">C#</span>
                             <span class="tool-pill">Gameplay</span>
                         </div>
-                        <a href="Files/PhishedNChips.pdf" class="details-link" aria-label="View project details">
+                        <a href="Files/PhishedNChips.pdf" class="details-link" target="_blank"
+                            aria-label="View project details">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M7 17L17 7"></path>
@@ -511,7 +543,70 @@
                 </div>
             </article>
 
-            <!-- Extra 3D Card -->
+            <!-- Game Development -->
+            <article class="project-card" data-category="game">
+                <div class="project-image-wrap">
+                    <img src="Images/toastNtales.png" alt="Game development project preview">
+                    <span class="project-tag">AR Game</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Toast & Tales AR Game</h2>
+                    <p class="project-desc">
+                        An AR mobile game designed to rejuvenate interest in the heritage of Singapore's iconic Ya Kun
+                        Kaya Toast
+                        by using AR to bring static images to life, players can interact with virtual history. (Team of
+                        2)
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Unity</span>
+                            <span class="tool-pill">AR</span>
+                            <span class="tool-pill">Firebase</span>
+                        </div>
+                        <a href="https://github.com/minnieie/ToastAndTales" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Burnt Cones -->
+            <article class="project-card" data-category="uiux">
+                <div class="project-image-wrap">
+                    <img src="Images/tntWeb.png" alt="Website design project preview">
+                    <span class="project-tag">Web Design</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Toast & Tales Website</h2>
+                    <p class="project-desc">
+                        The central hub for the Toast & Tales project.
+                        It acts as both a promotional landing page to introduce the Ya Kun heritage story and a Player
+                        Dashboard.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">HTML</span>
+                            <span class="tool-pill">Javascript</span>
+                            <span class="tool-pill">Firebase</span>
+                        </div>
+                        <a href="https://toastandtales.web.app/" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Chess -->
             <article class="project-card" data-category="3d">
                 <div class="project-image-wrap">
                     <img src="Images/chess.png" alt="3D asset project preview">
@@ -547,10 +642,11 @@
                     <span class="project-tag">Web Design</span>
                 </div>
                 <div class="project-content">
-                    <h2 class="project-title">Frame Social Studio Website Design</h2>
+                    <h2 class="project-title">Frame Social Studio Website</h2>
                     <p class="project-desc">
-                        A responsive website designed for a social media studio, 
-                        showcasing its branding, purpose, services, and contact information through a clean visual layout, and engaging scroll-based design.
+                        A responsive website designed for a social media studio,
+                        showcasing its branding, purpose, services, and contact information through a clean visual
+                        layout, and engaging scroll-based design.
                     </p>
                     <div class="project-footer">
                         <div class="tools">
@@ -570,6 +666,114 @@
                 </div>
             </article>
 
+            <!-- Sci Fi -->
+            <article class="project-card" data-category="3d">
+                <div class="project-image-wrap">
+                    <img src="Images/scifi.png" alt="Sci Fi Environment">
+                    <span class="project-tag">3D ENVIRONMENT</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Sci Fi Spaceship</h2>
+                    <p class="project-desc">
+                        A sci-fi environment design featuring futuristic structures,
+                        atmospheric lighting, and visual effects, created to build an immersive and dynamic space.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">VFX</span>
+                            <span class="tool-pill">Unity</span>
+                            <span class="tool-pill">Trim Sheet</span>
+                        </div>
+                        <a href="https://youtu.be/7XPzsqxaJxM" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Medieval -->
+            <article class="project-card" data-category="3d">
+                <div class="project-image-wrap">
+                    <img src="Images/medieval.png" alt="Website redesign project preview">
+                    <span class="project-tag">3D ENVIRONMENT</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Medieval Castle</h2>
+                    <p class="project-desc">
+                        A medieval castle 3D environment featuring stone walls, towers,
+                        and fortress-style architecture, designed to create a strong historical and fantasy atmosphere.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Maya</span>
+                            <span class="tool-pill">Unity</span>
+                            <span class="tool-pill">Trim Sheet</span>
+                        </div>
+                        <a href="https://youtu.be/0WHNO6L9t8w" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- UI/UX -->
+            <article class="project-card" data-category="uiux">
+                <div class="project-image-wrap">
+                    <img src="Images/polyQ.png" alt="UI UX app project preview">
+                    <span class="project-tag">UI/UX</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">PolyQ Mobile & Watch App</h2>
+                    <p class="project-desc">
+                        A queue-management app concept designed for polytechnic students, helping them check canteen
+                        crowd levels,
+                        view stall wait times, receive notifications, and plan lunch more efficiently.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Figma</span>
+                            <span class="tool-pill">UX Research</span>
+                        </div>
+
+                        <div class="project-actions">
+                            <a href="https://www.figma.com/design/tkUiBoiwhVS8rTo8GzAWjk/DUX_ASG1?t=kyA5ybQS8MnXd4Q0-1"
+                                class="details-link figma-link" target="_blank" rel="noopener noreferrer"
+                                aria-label="View Figma prototype">
+                                <svg width="22" height="22" viewBox="0 0 38 57" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 28.5C19 23.25 23.25 19 28.5 19C33.75 19 38 23.25 38 28.5C38 33.75 33.75 38 28.5 38C23.25 38 19 33.75 19 28.5Z" />
+                                    <path
+                                        d="M0 47.5C0 42.25 4.25 38 9.5 38H19V47.5C19 52.75 14.75 57 9.5 57C4.25 57 0 52.75 0 47.5Z" />
+                                    <path d="M19 0V19H28.5C33.75 19 38 14.75 38 9.5C38 4.25 33.75 0 28.5 0H19Z" />
+                                    <path d="M0 9.5C0 4.25 4.25 0 9.5 0H19V19H9.5C4.25 19 0 14.75 0 9.5Z" />
+                                    <path d="M0 28.5C0 23.25 4.25 19 9.5 19H19V38H9.5C4.25 38 0 33.75 0 28.5Z" />
+                                </svg>
+                            </a>
+
+                            <a href="Files/polyQ.pdf" class="details-link" target="_blank" rel="noopener noreferrer"
+                                aria-label="View project PDF">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 17L17 7"></path>
+                                    <path d="M8 7h9v9"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
             <!-- kuromi -->
             <article class="project-card" data-category="3d">
                 <div class="project-image-wrap">
@@ -577,7 +781,7 @@
                     <span class="project-tag">3D Modeling</span>
                 </div>
                 <div class="project-content">
-                    <h2 class="project-title">Kuromi</h2>
+                    <h2 class="project-title">Kuromi 3D Model</h2>
                     <p class="project-desc">
                         A stylised high-poly 3D model of Kuromi, featuring a cute character design with a unique
                         melted-skull detail for a creative twist.
@@ -588,6 +792,95 @@
                             <span class="tool-pill">Substance Painter</span>
                         </div>
                         <a href="https://www.artstation.com/artwork/1NRrd3" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- miaomiao -->
+            <article class="project-card" data-category="uiux">
+                <div class="project-image-wrap">
+                    <img src="Images/miaomiao.png" alt="Website redesign project preview">
+                    <span class="project-tag">Web Design</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Miao Miao E-commerce Website</h2>
+                    <p class="project-desc">
+                        An e-commerce platform for figurine enthusiasts,
+                        offering a seamless shopping experience, interactive 3D previews, and gamification to make
+                        collecting even more exciting. (Team of 2)
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">HTML</span>
+                            <span class="tool-pill">Web Dev</span>
+                            <span class="tool-pill">Firebase</span>
+                        </div>
+                        <a href="https://github.com/minnieie/MiaoMiao" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 3D Modeling & Environment -->
+            <article class="project-card" data-category="social">
+                <div class="project-image-wrap">
+                    <img src="Images/socialmedia.png" alt="Social Media Campagin">
+                    <span class="project-tag">Social Media</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Diploma Promotion Campaign</h2>
+                    <p class="project-desc">
+                        A 7-day social media campaign aims to promote the Diploma in Immersive Media (IM) 
+                        at Ngee Ann Polytechnic to secondary school students aged 15-17.
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Canva</span>
+                            <span class="tool-pill">Social Media</span>
+                        </div>
+                        <a href="Files/SocialMedia.pdf" class="details-link" target="_blank"
+                            aria-label="View project details">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 17L17 7"></path>
+                                <path d="M8 7h9v9"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Ruler of Pandora -->
+            <article class="project-card" data-category="game">
+                <div class="project-image-wrap">
+                    <img src="Images/pandora.png" alt="Game development project preview">
+                    <span class="project-tag">Game Design</span>
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Ruler of Pandora Board Game</h2>
+                    <p class="project-desc">
+                        A strategy board game inspired by Avatar, where players use character, action,
+                        and resource cards to battle for territory and become the ultimate ruler of Pandora. (Team of 5)
+                    </p>
+                    <div class="project-footer">
+                        <div class="tools">
+                            <span class="tool-pill">Board Game Design</span>
+                            <span class="tool-pill">Strategy</span>
+                        </div>
+                        <a href="Files/Ruler-Of-Pandora.pdf" class="details-link" target="_blank"
                             aria-label="View project details">
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
