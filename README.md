@@ -47,25 +47,6 @@ You can view my portfolio website here:
 - 3D modeling
 - Environment design
 
-##  Featured Work
-
-Here are some areas I have worked on:
-
-- **UI/UX & App Design**  
-  Mobile app prototypes, kiosk interfaces, queue-management apps, and scam-awareness learning platforms.
-
-- **Game Development**  
-  Unity 3D games, VR learning experiences, AR mobile games, and educational game concepts.
-
-- **3D Modeling & Environment Design**  
-  Character models, props, sci-fi spaceships, castles, snowy environments, and stylised 3D assets.
-
-- **Web Design & Front-End**  
-  Portfolio websites, studio websites, e-commerce concepts, and promotional webpages.
-
-- **Social Media Campaigns**  
-  Campaign planning, content design, and visual communication for brand and diploma promotion.
-
 ##  Connect With Me
 
 - GitHub: [100hui](https://github.com/100hui)
