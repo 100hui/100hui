@@ -50,4 +50,4 @@ You can view my portfolio website here:
 ##  Connect With Me
 
 - GitHub: [100hui](https://github.com/100hui)
-- LinkedIn: [Geng Baihui](https://www.linkedin.com/in/baihui-geng-0394b6304)
+- LinkedIn: [Geng Baihui](https://www.linkedin.com/in/gengbaihui)
